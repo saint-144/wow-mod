@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link"; // ← Add this
+import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -12,7 +13,12 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <img className="h-10 w-auto" src="/wow-logo.jpg" alt="WOW Modular" />
+              <Image
+                src="/wow-logo.jpg"
+                alt="WOW Modular"
+                width={80}  // reduced width
+                height={30} // reduced height
+              />
             </Link>
           </div>
 
@@ -40,9 +46,9 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-white px-2 pt-2 pb-4 space-y-1 shadow-md">
           <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-red-600">Home</Link>
-          <Link href="/About" className="block px-3 py-2 text-gray-700 hover:text-red-600">About Us</Link>
-          <Link href="/Services" className="block px-3 py-2 text-gray-700 hover:text-red-600">Services</Link>
-          <Link href="/Contact" className="block px-3 py-2 text-gray-700 hover:text-red-600">Contact</Link>
+          <Link href="/about" className="block px-3 py-2 text-gray-700 hover:text-red-600">About Us</Link>
+          <Link href="/services" className="block px-3 py-2 text-gray-700 hover:text-red-600">Services</Link>
+          <Link href="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-600">Contact</Link>
         </div>
       )}
     </nav>
