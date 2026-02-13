@@ -14,40 +14,58 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-gray-100 py-20 px-6">
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-red-600 mb-4">
-          Our Services
-        </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          WOW Modular delivers premium modular interiors for homes, offices, and hospitality projects.
-        </p>
-      </div>
+    <div className="relative min-h-screen overflow-hidden text-white py-20 px-6">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {services.map((service, idx) => (
-          <Link href={service.link} key={idx}>
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="relative h-48 rounded-xl overflow-hidden cursor-pointer shadow-md group"
-            >
-              {/* Background animation */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 
-                              group-hover:from-red-600 group-hover:to-red-800 transition-all duration-500"></div>
+      {/* Background Image */}
+      <div
+        className="fixed inset-0 bg-cover bg-center -z-20"
+        style={{ backgroundImage: "url('/services-bg.jpg')" }}
+      />
 
-              {/* Text Center */}
-              <div className="absolute inset-0 flex items-center justify-center text-center">
-                <span className="text-gray-700 font-semibold text-xl group-hover:opacity-0 transition-opacity duration-300">
-                  {service.name}
-                </span>
-                <span className="absolute text-white font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Explore {service.name}
-                </span>
-              </div>
-            </motion.div>
-          </Link>
-        ))}
+      {/* Subtle Blur + Red Overlay */}
+      <div className="fixed inset-0 backdrop-blur-[1px] bg-black/55 -z-10" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-red-500 mb-4 tracking-tight">
+            Our Services
+          </h1>
+          <p className="text-gray-200 max-w-2xl mx-auto">
+            WOW Modular delivers premium modular interiors for homes, offices, and hospitality projects.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
+            <Link href={service.link} key={idx}>
+              <motion.div
+                whileHover={{ scale: 1.04, y: -6 }}
+                transition={{ type: "spring", stiffness: 180 }}
+                className="relative h-52 rounded-2xl overflow-hidden cursor-pointer
+                           bg-white/10 backdrop-blur-sm border border-white/20
+                           shadow-xl group transition duration-300"
+              >
+                {/* Hover Red Glow Layer */}
+                <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/20 transition-all duration-500"></div>
+
+                {/* Text */}
+                <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                  <span className="text-white font-semibold text-xl group-hover:opacity-0 transition-opacity duration-300">
+                    {service.name}
+                  </span>
+
+                  <span className="absolute text-white font-bold text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Explore {service.name}
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
+        </div>
+
       </div>
     </div>
   );

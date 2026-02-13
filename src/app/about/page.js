@@ -3,21 +3,35 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-black px-6 py-20 flex flex-col items-center">
-      
+    <div className="relative min-h-screen text-white overflow-hidden px-6 py-20 flex flex-col items-center">
+
+      {/* 🖼 Background Image */}
+      <div
+        className="fixed inset-0 bg-cover bg-center -z-20"
+        style={{ backgroundImage: "url('/about-bg.jpg')" }}
+      />
+
+      {/* 🌫 1px Blur + Dark Overlay */}
+      <div className="fixed inset-0 backdrop-blur-[1px] bg-black/50 -z-10" />
+
       {/* Page Heading */}
       <motion.h1
-        className="text-5xl font-bold text-center mb-12"
+        className="text-5xl font-bold text-center mb-12 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]"
+
+        style={{
+          WebkitTextStroke: "0.5px rgba(255,255,255,0.6)",
+        }}
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        About <span className="text-red-600">WOW Modular</span>
+        About <span className="text-red-500">WOW Modular</span>
       </motion.h1>
+
 
       {/* Company Intro */}
       <motion.p
-        className="text-gray-700 text-center max-w-3xl mx-auto mb-16 text-lg leading-relaxed"
+        className="text-gray-200 text-center max-w-3xl mx-auto mb-16 text-lg leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -32,7 +46,11 @@ export default function AboutPage() {
 
       {/* Bold Tagline */}
       <motion.blockquote
-        className="text-2xl sm:text-3xl font-bold text-center text-red-600 mb-12 max-w-2xl"
+      className="text-3xl font-bold text-center mb-12 text-red-500"
+        style={{
+        WebkitTextStroke: "0.6px rgba(255,255,255,0.8)"
+
+        }}
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -40,6 +58,8 @@ export default function AboutPage() {
       >
         “From concept to creation – interiors that inspire.”
       </motion.blockquote>
+
+
     </div>
   );
 }

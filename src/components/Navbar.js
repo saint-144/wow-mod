@@ -27,7 +27,8 @@ export default function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-red-600">Home</Link>
             <Link href="/about" className="text-gray-700 hover:text-red-600">About Us</Link>
             <Link href="/services" className="text-gray-700 hover:text-red-600">Services</Link>
-            <Link href="/contact" className="text-gray-700 hover:text-red-600">Contact</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-red-600">Contact Us</Link>
+            <Link href="/reviews" className="text-gray-700 hover:text-red-600">Reviews</Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -45,12 +46,48 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white px-2 pt-2 pb-4 space-y-1 shadow-md">
-          <Link href="/" className="block px-3 py-2 text-gray-700 hover:text-red-600">Home</Link>
-          <Link href="/about" className="block px-3 py-2 text-gray-700 hover:text-red-600">About Us</Link>
-          <Link href="/services" className="block px-3 py-2 text-gray-700 hover:text-red-600">Services</Link>
-          <Link href="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-600">Contact</Link>
+          <Link 
+            href="/" 
+            onClick={() => setOpen(false)}
+            className="block px-3 py-2 text-gray-700 hover:text-red-600"
+          >
+            Home
+          </Link>
+
+          <Link 
+            href="/about" 
+            onClick={() => setOpen(false)}
+            className="block px-3 py-2 text-gray-700 hover:text-red-600"
+          >
+            About Us
+          </Link>
+
+          <Link 
+            href="/services" 
+            onClick={() => setOpen(false)}
+            className="block px-3 py-2 text-gray-700 hover:text-red-600"
+          >
+            Services
+          </Link>
+
+          <Link 
+            href="/contact" 
+            onClick={() => setOpen(false)}
+            className="block px-3 py-2 text-gray-700 hover:text-red-600"
+          >
+            Contact Us
+          </Link>
+
+          <Link 
+            href="/reviews" 
+            onClick={() => setOpen(false)}
+            className="block px-3 py-2 text-gray-700 hover:text-red-600"
+          >
+            Reviews
+          </Link>
         </div>
       )}
+
     </nav>
   );
 }
